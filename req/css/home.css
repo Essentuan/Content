@@ -1,0 +1,8 @@
+#announcement {
+  margin: auto;
+  height: 50%;
+  width: 690px;
+  background-color: rgba(0, 0, 0, 0.5);	
+  border: 2px solid rgb(66, 135, 245);
+  border-radius: 5px
+}
