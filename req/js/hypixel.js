@@ -36,8 +36,8 @@ function getGuild(vari) {
     //}
   //}
 //}
-function getNameFromUUID(uuid) {
+function getProfileFromUUID(uuid) {
   let url = "https://api.hypixel.net/player?key=" + key.personal + "&uuid=" + uuid
   let data = $.ajax({url: url, type: 'get', async: false, dataType: 'json',})
-  return(data.responseJSON.player.displayname)
+  return(data.responseJSON.player)
 }
