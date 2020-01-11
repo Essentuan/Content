@@ -56,7 +56,14 @@ let namesList = localStorage.getItem("guildUS").split(",")
 $("#main").append('<h1>Guild Master</h1><hr><row id="GuildMaster"></row>')
 for (let i = 0; i < rankList.length; i++) {
     $("#main").append('<h1>' + rankList[i].name + '</h1><hr><row id="'+ rankList[i].name.replace(/\s/g, '') + '"></row>')
+    if (rankList[i].name == "Active") {
+        $("#main").append('<h1>Youtuber</h1><hr><row id="Youtuber"></row>')
+    }
 }
 for (let i = 0; i < membersList.length; i++) {
-    $("#" + membersList[i].rank.replace(/\s/g, '')).append('<div class="item-hints"><div class="hint" data-position="4"><!-- is-hint --><img src="https://crafatar.com/avatars/' + membersList[i].uuid + '?overlay" width="96px" height="96px"><span class="hint-radius"></span><div class="hint-content do--split-children"><p>' + namesList[i] + '</p></div></div></div>')
+    if (membersList[i].rank != "Youtuber") {
+        $("#" + membersList[i].rank.replace(/\s/g, '')).append('<div class="item-hints"><div class="hint" data-position="4"><!-- is-hint --><img src="https://crafatar.com/avatars/' + membersList[i].uuid + '?overlay" width="96px" height="96px"><span class="hint-radius"></span><div class="hint-content do--split-children"><p>' + namesList[i] + '</p></div></div></div>')
+    } else {
+        $("#" + membersList[i].rank).append('<div class="item-hints"><div class="hint" data-position="4"><!-- is-hint --><img src="https://crafatar.com/avatars/' + membersList[i].uuid + '?overlay" width="96px" height="96px"><span class="hint-radius"></span><div class="hint-content do--split-children"><p>' + namesList[i] + '</p></div></div></div>')
+    }
 }
