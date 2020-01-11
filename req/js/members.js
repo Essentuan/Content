@@ -7,30 +7,32 @@ function getAllMembers() {
   return(users)
 }
 function checkGuild() {
-    let guildNew = getGuild()
-    let guildOld = JSON.parse(localStorage.getItem("guild"))
-    let equal 
-    if (guildNew.members.length != guildOld.members.length) {
-        equal = "force"
-        return(equal)
-    } else if (guildNew.ranks.length != guildOld.ranks.length) {
-        equal = "force"
-        return(equal)
-    } else {
-        for (let i = 0; i < guildNew.ranks.length; i++) {
-            if (guildNew.ranks[i].name != guildOld.ranks[i].name) {
-                equal = "force"
-                return(equal)
+    if (JSON.parse(localStorage.getItem("guild")) != null) {
+        let guildNew = getGuild()
+        let guildOld = JSON.parse(localStorage.getItem("guild"))
+        let equal 
+        if (guildNew.members.length != guildOld.members.length) {
+            equal = "force"
+            return(equal)
+        } else if (guildNew.ranks.length != guildOld.ranks.length) {
+            equal = "force"
+            return(equal)
+        } else {
+            for (let i = 0; i < guildNew.ranks.length; i++) {
+                if (guildNew.ranks[i].name != guildOld.ranks[i].name) {
+                    equal = "force"
+                    return(equal)
+                }
+            }
+            for (let i = 0; i < guildNew.members.length; i++) {
+                if (guildNew.members[i].uuid != guildOld.members[i].uuid) {
+                    equal = "force"
+                    return(equal)
+                }
             }
         }
-        for (let i = 0; i < guildNew.members.length; i++) {
-            if (guildNew.members[i].uuid != guildOld.members[i].uuid) {
-                equal = "force"
-                return(equal)
-            }
-        }
+        return(equal)
     }
-    return(equal)
 }
 function updateGuild(opt) {
     if (opt != "force") {
