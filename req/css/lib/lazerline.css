@@ -2,7 +2,7 @@
 .item-hints .hint {
   width: 96px;
   height: 96px;
-  margin: 150px auto;
+  margin: 100px auto;
   position: relative;
 }
 @-webkit-keyframes home_hero_item_hints_glow {
